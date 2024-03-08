@@ -1,0 +1,3 @@
+[submodule "ChinaOpenDataPortal-BackEnd"]
+	path = ChinaOpenDataPortal-BackEnd
+	url = git@github.com:cqsss/ChinaOpenDataPortal.git
