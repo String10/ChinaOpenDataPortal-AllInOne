@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+echo "================================`date -I`================================"
+
+SCRIPT_DIR=$(dirname $(readlink -f $0))
+source ${SCRIPT_DIR}/env.sh
+
+pushd ${SERVER_REPO_PATH}
+  ${MAVEN_PATH} clean install
+popd
+
+TARGET_PATH="${SERVER_REPO_PATH}/target/ChinaOpenDataPortal-0.0.1-SNAPSHOT.jar"
+
+${JAVA_PATH} -jar ${TARGET_PATH} \
+  --websoft.chinaopendataportal.indices.load=${LUCENE_INDICES_CURRENT_PATH} \
+  --websoft.chinaopendataportal.stopwords=${STOPWORDS_PATH} \
+  --websoft.chinaopendataportal.portal=${PORTALS_PATH} \
+  --websoft.chinaopendataportal.news=${NEWS_PATH} \
+  --websoft.chinaopendataportal.security.user=${ADMIN_USER} \
+  --websoft.chinaopendataportal.security.pswd=${ADMIN_PSWD} \
+  "$@"
