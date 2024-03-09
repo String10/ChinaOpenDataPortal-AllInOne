@@ -5,11 +5,12 @@ echo "================================`date -I`================================"
 SCRIPT_DIR=$(dirname $(readlink -f $0))
 source ${SCRIPT_DIR}/env.sh
 
+DATE_SUFFIX=`date +"%Y-%m-%d"`
+
 # fetch metadata & write to database
 CRAWLER_MODULE="crawler"
 DBWRITER_MODULE="db-writer"
 
-DATE_SUFFIX=`date +"%Y-%m-%d"`
 METADATA_SAVING_PATH="${METADATA_PATH}/metadata-${DATE_SUFFIX}"
 DATAFILE_SAVING_PATH="${DATAFILE_PATH}/datafile-${DATE_SUFFIX}"
 
@@ -54,3 +55,40 @@ DATAFILE_SAVING_PATH="${DATAFILE_PATH}/datafile-${DATE_SUFFIX}"
     popd
 
 echo "[LOG `date`] Finish Data Fetching."
+
+# build indices from database
+function __size() {
+    du -D $1 | awk -F ' ' '{print$1}'
+}
+
+INDICES_SAVING_PATH="${LUCENE_INDICES_PATH}/indices-${DATE_SUFFIX}"
+
+pushd ${INDEXBUILDER_REPO_PATH}
+    ${MAVEN_PATH} clean install
+popd
+
+TARGET_PATH="${INDEXBUILDER_REPO_PATH}/target/index-builder-0.0.1-SNAPSHOT.jar"
+
+echo "[LOG `date`] Building Indices..."
+${JAVA_PATH} -jar ${TARGET_PATH} \
+    --websoft.chinaopendataportal.indices.store=${INDICES_SAVING_PATH} \
+    --websoft.chinaopendataportal.stopwords=${STOPWORDS_PATH} \
+    --spring.datasource.url="jdbc:mysql://${DB_ADDR}:${DB_PORT}/${DATABASE_NAME}" \
+    --spring.datasource.username=${DB_USER} \
+    --spring.datasource.password="${DB_PSWD}" \
+    --websoft.chinaopendataportal.table=${PRD_TABLE_NAME}
+
+## update current indices
+if [ ! -e "${LUCENE_CURRENT_INDEX_PATH}" ] || \
+    [ `__size ${LUCENE_CURRENT_INDEX_PATH}` -lt `__size ${INDICES_SAVING_PATH}` ]
+then
+    echo "[LOG `date`] Linking Indices..."
+    if [ -e "${LUCENE_CURRENT_INDEX_PATH}" ]
+    then
+        rm ${LUCENE_CURRENT_INDEX_PATH}
+    fi
+    ln -s ${INDICES_SAVING_PATH} ${LUCENE_CURRENT_INDEX_PATH}
+    echo "[LOG `date`] `curl -X POST -u ${ADMIN_USER}:${ADMIN_PSWD} "${BACKEND_URL}/apis/update?index=${INDICES_SAVING_PATH}"`"
+else
+    echo "[LOG `date`] Indices Linking Canceled."
+fi

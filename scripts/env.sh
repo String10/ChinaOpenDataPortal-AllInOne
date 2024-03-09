@@ -11,13 +11,16 @@ METADATA_PATH="${THIS_REPO_PATH}/metadata"
 DATAFILE_PATH="${THIS_REPO_PATH}/datafile"
 LUCENE_INDICES_PATH="${THIS_REPO_PATH}/indices"
 
+BACKEND_URL=http://localhost:9999/cn-public
+
 # Tools
 MAVEN_PATH="mvn"
 JAVA_PATH="java"
 PYTHON_PATH="python"
 
 # Common
-LUCENE_INDICES_CURRENT_PATH="${LUCENE_INDICES_PATH}/current"
+LUCENE_CURRENT_INDEX_PATH="${LUCENE_INDICES_PATH}/current"
+STOPWORDS_PATH="${SERVER_REPO_PATH}/src/main/resources/static/stopwords/nltk-chinese-stopwords.txt"
 
 # Security
 ADMIN_USER="****"
