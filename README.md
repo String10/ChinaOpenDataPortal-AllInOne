@@ -122,3 +122,22 @@ Environmet variables you may want to specify in `env.custom.sh`:
 | url_hash          | varchar(255) | NO   | UNI | NULL    |                |
 +-------------------+--------------+------+-----+---------+----------------+
 ```
+
+### Script Usages
+
+#### start-server.sh
+
+Recommended:
+
+```bash
+nohup bash ./scripts/start-server.sh >> ./logs/server.txt 2>&1 &
+```
+
+#### fetch-data.sh
+
+Recommended:
+
+```bash
+echo "0 0 1 */1 * __ROOT=\"`realpath .`\"; bash \${__ROOT}/scripts/fetch-data.sh > \"\${__ROOT}/logs/fd-\`date --i\`.txt\" 2>&1" >> logs/auto-task.txt
+crontab logs/auto-task.txt
+```
