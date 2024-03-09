@@ -11,6 +11,10 @@ popd
 
 TARGET_PATH="${SERVER_REPO_PATH}/target/ChinaOpenDataPortal-0.0.1-SNAPSHOT.jar"
 
+STOPWORDS_PATH="${SERVER_REPO_PATH}/src/main/resources/static/stopwords/nltk-chinese-stopwords.txt"
+PORTALS_PATH="${SERVER_REPO_PATH}/src/main/resources/data/portals.json"
+NEWS_PATH="${SERVER_REPO_PATH}/src/main/resources/data/news.json"
+
 ${JAVA_PATH} -jar ${TARGET_PATH} \
   --websoft.chinaopendataportal.indices.load=${LUCENE_INDICES_CURRENT_PATH} \
   --websoft.chinaopendataportal.stopwords=${STOPWORDS_PATH} \
