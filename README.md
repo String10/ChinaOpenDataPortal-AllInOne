@@ -48,3 +48,62 @@ Environmet variables you may want to specify in `env.custom.sh`:
     1. PRD_TABLE_NAME (specift a table which used in production)
 1. Others:
     1. PYTHON_PATH (Python 3.6 Recommended)
+
+## Appendix
+
+### Metadata Table Template
+
+```
++-------------------+--------------+------+-----+---------+----------------+
+| Field             | Type         | Null | Key | Default | Extra          |
++-------------------+--------------+------+-----+---------+----------------+
+| dataset_id        | int          | NO   | PRI | NULL    | auto_increment |
+| title             | varchar(255) | YES  |     | NULL    |                |
+| description       | text         | YES  |     | NULL    |                |
+| tags              | text         | YES  |     | NULL    |                |
+| department        | varchar(255) | YES  |     | NULL    |                |
+| category          | varchar(255) | YES  |     | NULL    |                |
+| publish_time      | varchar(255) | YES  |     | NULL    |                |
+| update_time       | varchar(255) | YES  |     | NULL    |                |
+| is_open           | varchar(255) | YES  |     | NULL    |                |
+| data_volume       | varchar(255) | YES  |     | NULL    |                |
+| industry          | varchar(255) | YES  |     | NULL    |                |
+| update_frequency  | varchar(255) | YES  |     | NULL    |                |
+| telephone         | varchar(255) | YES  |     | NULL    |                |
+| email             | varchar(255) | YES  |     | NULL    |                |
+| data_formats      | varchar(255) | YES  |     | NULL    |                |
+| url               | text         | YES  |     | NULL    |                |
+| province          | varchar(255) | YES  |     | NULL    |                |
+| city              | varchar(255) | YES  |     | NULL    |                |
+| standard_industry | varchar(255) | YES  |     | NULL    |                |
++-------------------+--------------+------+-----+---------+----------------+
+```
+
+### Metadata Table for Production Template
+
+```
++-------------------+--------------+------+-----+---------+----------------+
+| Field             | Type         | Null | Key | Default | Extra          |
++-------------------+--------------+------+-----+---------+----------------+
+| dataset_id        | int          | NO   | PRI | NULL    | auto_increment |
+| title             | varchar(255) | YES  |     | NULL    |                |
+| description       | text         | YES  |     | NULL    |                |
+| tags              | text         | YES  |     | NULL    |                |
+| department        | varchar(255) | YES  |     | NULL    |                |
+| category          | varchar(255) | YES  |     | NULL    |                |
+| publish_time      | varchar(255) | YES  |     | NULL    |                |
+| update_time       | varchar(255) | YES  |     | NULL    |                |
+| is_open           | varchar(255) | YES  |     | NULL    |                |
+| data_volume       | varchar(255) | YES  |     | NULL    |                |
+| industry          | varchar(255) | YES  |     | NULL    |                |
+| update_frequency  | varchar(255) | YES  |     | NULL    |                |
+| telephone         | varchar(255) | YES  |     | NULL    |                |
+| email             | varchar(255) | YES  |     | NULL    |                |
+| data_formats      | varchar(255) | YES  |     | NULL    |                |
+| url               | text         | NO   |     | NULL    |                |
+| province          | varchar(255) | YES  |     | NULL    |                |
+| city              | varchar(255) | YES  |     | NULL    |                |
+| standard_industry | varchar(255) | YES  |     | NULL    |                |
+| url_hash          | varchar(255) | NO   | UNI | NULL    |                |
++-------------------+--------------+------+-----+---------+----------------+
+```

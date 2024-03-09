@@ -33,7 +33,7 @@ DATAFILE_SAVING_PATH="${DATAFILE_PATH}/datafile-${DATE_SUFFIX}"
             --db-host ${DB_ADDR} \
             --db-port ${DB_PORT} \
             --db-user ${DB_USER} \
-            --db-pswd ${DB_PSWD} \
+            --db-pswd "${DB_PSWD}" \
             --database ${DATABASE_NAME} \
             --ref-table ${REF_TABLE_NAME} \
             --table ${ARC_TABLE_NAME} \
@@ -45,7 +45,7 @@ DATAFILE_SAVING_PATH="${DATAFILE_PATH}/datafile-${DATE_SUFFIX}"
             --db-host ${DB_ADDR} \
             --db-port ${DB_PORT} \
             --db-user ${DB_USER} \
-            --db-pswd ${DB_PSWD} \
+            --db-pswd "${DB_PSWD}" \
             --database ${DATABASE_NAME} \
             --table ${PRD_TABLE_NAME} \
             --url-hash \
