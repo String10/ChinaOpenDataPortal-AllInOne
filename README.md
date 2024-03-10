@@ -138,6 +138,7 @@ nohup bash ./scripts/start-server.sh >> ./logs/server.txt 2>&1 &
 Recommended:
 
 ```bash
+# the first of every month at 0:00
 echo "0 0 1 */1 * __ROOT=\"`realpath .`\"; bash \${__ROOT}/scripts/fetch-data.sh > \"\${__ROOT}/logs/fd-\`date --i\`.txt\" 2>&1" >> logs/auto-task.txt
 crontab logs/auto-task.txt
 ```
