@@ -1,9 +1,9 @@
 [submodule "ChinaOpenDataPortal-Backend"]
 	path = ChinaOpenDataPortal-Backend
-	url = git@github.com:cqsss/ChinaOpenDataPortal.git
+	url = ../../cqsss/ChinaOpenDataPortal.git
 [submodule "ChinaOpenDataPortal-Metadata"]
 	path = ChinaOpenDataPortal-Metadata
-	url = git@github.com:String10/ChinaOpenDataPortal-Metadata.git
+	url = ../ChinaOpenDataPortal-Metadata.git
 [submodule "ChinaOpenDataPortal-IndexBuilder"]
 	path = ChinaOpenDataPortal-IndexBuilder
-	url = git@github.com:String10/ChinaOpenDataPortal-IndexBuilder.git
+	url = ../ChinaOpenDataPortal-IndexBuilder.git

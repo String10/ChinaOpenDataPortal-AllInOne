@@ -3,7 +3,7 @@
 Use this command to create a basic `env.custom.sh`:
 
 ```bash
-echo "MAVEN_PATH=$(realpath $(which mvn))\nJAVA_PATH=$(realpath $(which java))" >> ./scripts/env.custom.sh
+echo "PYTHON_PATH=$(realpath $(which python))" >> ./scripts/env.custom.sh
 ```
 
 ## API Server & Backend
