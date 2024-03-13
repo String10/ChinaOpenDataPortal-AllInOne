@@ -7,3 +7,6 @@
 [submodule "ChinaOpenDataPortal-IndexBuilder"]
 	path = ChinaOpenDataPortal-IndexBuilder
 	url = ../ChinaOpenDataPortal-IndexBuilder.git
+[submodule "ChinaOpenDataPortal-Frontend-Vue"]
+	path = ChinaOpenDataPortal-Frontend-Vue
+	url = ../ChinaOpenDataPortal-Frontend-Vue.git

@@ -1,10 +1,38 @@
 # ChinaOpenDataPortal All in One
 
-Use this command to create a basic `env.custom.sh`:
+## Vue Frontend
+
+Github Repo: String10/ChinaOpenDataPortal-Frontend-Vue, based on Vue3 and [Tabler: An HTML Dashboard UI Kit built on Bootstrap](https://github.com/tabler/tabler).
+
+### Deployment
+
+#### Docker (Nginx)
+
+Deploy the frontend using nginx inside of a docker container.
+
+> Expose: Port 80.
+> Env-Vars: `VITE_BACKEND_HOST`.
+
+Image build command:
 
 ```bash
-echo "PYTHON_PATH=$(realpath $(which python))" >> ./scripts/env.custom.sh
+# PWD: ./ChinaOpenDataPortal-Frontend-Vue
+docker build -f docker/Dockerfile -t username/imagename .
 ```
+
+Push image to Docker Hub:
+
+```bash
+docker push username/imagename:latest
+```
+
+---
+
+> Use this command to create a basic `env.custom.sh`:
+>
+> ```bash
+> echo "PYTHON_PATH=$(realpath $(which python))" >> ./scripts/env.custom.sh
+> ```
 
 ## API Server & Backend
 
