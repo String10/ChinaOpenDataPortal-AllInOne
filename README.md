@@ -11,7 +11,7 @@ Github Repo: String10/ChinaOpenDataPortal-Frontend-Vue, based on Vue3 and [Table
 Deploy the frontend using nginx inside of a docker container.
 
 > Expose: Port 80.
-> Env-Vars: `VITE_BACKEND_HOST`.
+> Env-Vars: `VITE_BACKEND_HOST`; `VITE_BEIAN_NUMBER`.
 
 Image build command:
 
@@ -36,14 +36,15 @@ docker push username/imagename:latest
 
 ## API Server & Backend
 
-Github Repo: cqsss/ChinaOpenDataPortal, based on Sprint Boot and Thymeleaf.
-Provide basic Web Page service and ability of acting as API server for other frontend service.
+### Java Backend
+
+Github Repo: cqsss/ChinaOpenDataPortal, based on Sprint Boot and Thymeleaf, with ability of acting as API server for other frontend service.
 Default index path is `indices/current`.
 
-### Script Usage
+#### Usage
 
-Use `scripts/start-server.sh` to start a process as API server and backend.
-Append more arguments as you need like `./scripts/start-server.sh --server.port=9998`.
+Use `scripts/start-server.java.sh` to start a process as API server and backend.
+Append more arguments as you need like `./scripts/start-server.java.sh --server.port=9998`.
 
 Environmet variables you may want to specify in `env.custom.sh`:
 
@@ -51,6 +52,21 @@ Environmet variables you may want to specify in `env.custom.sh`:
 1. JAVA_PATH (Java 11 Recommended)
 1. ADMIN_USER
 1. ADMIN_PSWD
+3. PYTHON_RETRY_TIMES
+
+### Python Backend
+
+Github Repo: String10/ChinaOpenDataPortal-Backend-Flask, based on Flask, providing ability of communicating with Large Language Models and querying MySQL database.
+
+#### Usage
+
+Use `scripts/start-server.py.sh` to start a process as python backend.
+Append more arguments as you need like `./scripts/start-server.py.sh --host 0.0.0.0`.
+
+Environmet variables you may want to specify in `env.custom.sh`:
+
+1. FLASK_PATH
+2. FLASK_PORT
 
 ## Data Processor
 
@@ -132,36 +148,67 @@ Environmet variables you may want to specify in `env.custom.sh`:
 | title             | varchar(255) | YES  |     | NULL    |                |
 | description       | text         | YES  |     | NULL    |                |
 | tags              | text         | YES  |     | NULL    |                |
-| department        | varchar(255) | YES  |     | NULL    |                |
-| category          | varchar(255) | YES  |     | NULL    |                |
 | publish_time      | varchar(255) | YES  |     | NULL    |                |
 | update_time       | varchar(255) | YES  |     | NULL    |                |
+| industry          | varchar(255) | YES  |     | NULL    |                |
+| department        | varchar(255) | YES  |     | NULL    |                |
 | is_open           | varchar(255) | YES  |     | NULL    |                |
 | data_volume       | varchar(255) | YES  |     | NULL    |                |
-| industry          | varchar(255) | YES  |     | NULL    |                |
 | update_frequency  | varchar(255) | YES  |     | NULL    |                |
-| telephone         | varchar(255) | YES  |     | NULL    |                |
-| email             | varchar(255) | YES  |     | NULL    |                |
 | data_formats      | varchar(255) | YES  |     | NULL    |                |
 | url               | text         | NO   |     | NULL    |                |
 | province          | varchar(255) | YES  |     | NULL    |                |
 | city              | varchar(255) | YES  |     | NULL    |                |
 | standard_industry | varchar(255) | YES  |     | NULL    |                |
 | url_hash          | varchar(255) | NO   | UNI | NULL    |                |
+| origin_metadata   | mediumtext   | YES  |     | NULL    |                |
+| fetch_time        | varchar(255) | YES  |     | NULL    |                |
 +-------------------+--------------+------+-----+---------+----------------+
 ```
 
+### Docker Compose YAML
+
+``` YAML
+version: '3.4'
+services:
+  frontend:
+    image: 'username/imagename:latest'
+    container_name: codp-frontend-vue
+    restart: unless-stopped
+    ports:
+      - 'HOST_PORT:80'
+    environment:
+      - 'VITE_BACKEND_HOST=VITE_BACKEND_HOST_PLACEHOLDER'
+      - 'VITE_BEIAN_NUMBER=VITE_BEIAN_NUMBER_PLACEHOLDER'
+```
+
+Params:
+1. Image Name.
+2. Host Port.
+3. Env-Var: VITE_BACKEND_HOST.
+4. Env-Var: VITE_BEIAN_NUMBER.
+
 ### Script Usages
 
-#### start-server.sh
+#### start-server
+
+##### Java
 
 Recommended:
 
 ```bash
-nohup bash ./scripts/start-server.sh >> ./logs/server.txt 2>&1 &
+nohup bash ./scripts/start-server.java.sh >> ./logs/server.java.txt 2>&1 &
 ```
 
-#### fetch-data.sh
+##### Python
+
+Recommended:
+
+```bash
+nohup bash ./scripts/start-server.py.sh >> ./logs/server.py.txt 2>&1 &
+```
+
+#### fetch-data
 
 Recommended:
 

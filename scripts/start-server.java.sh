@@ -21,4 +21,6 @@ ${JAVA_PATH} -jar ${TARGET_PATH} \
   --websoft.chinaopendataportal.news=${NEWS_PATH} \
   --websoft.chinaopendataportal.security.user=${ADMIN_USER} \
   --websoft.chinaopendataportal.security.pswd=${ADMIN_PSWD} \
+  --websoft.chinaopendataportal.python.api=http://127.0.0.1:${FLASK_PORT}/apis \
+  --websoft.chinaopendataportal.python.maxreranktimes=${PYTHON_RETRY_TIMES} \
   "$@"

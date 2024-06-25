@@ -17,11 +17,11 @@ BACKEND_URL=http://localhost:9999/cn-public
 MAVEN_PATH="mvn"
 JAVA_PATH="java"
 PYTHON_PATH="python"
+FLASK_PATH="flask"
 
 # Common
 LUCENE_CURRENT_INDEX_PATH="${LUCENE_INDICES_PATH}/current"
-STOPWORDS_PATH="${SERVER_REPO_PATH}/src/main/resources/static/stopwords/nltk-chinese-stopwords.txt"
-
+STOPWORDS_PATH="${SERVER_REPO_PATH}/src/main/resources/data/nltk-chinese-stopwords.txt"
 # Security
 ADMIN_USER="****"
 ADMIN_PSWD="****"
@@ -38,6 +38,8 @@ PRD_TABLE_NAME="****"
 # Options
 CRAWL_WORKERS=60
 CRAWL_FILES="" # OR "--download-files"
+FLASK_PORT="5007"
+PYTHON_RETRY_TIMES="1"
 
 echo "[LOG] Environment loaded."
 
