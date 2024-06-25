@@ -1,12 +1,15 @@
 [submodule "ChinaOpenDataPortal-Backend"]
-	path = ChinaOpenDataPortal-Backend
+	path = codp-backend-java
 	url = ../../cqsss/ChinaOpenDataPortal.git
 [submodule "ChinaOpenDataPortal-Metadata"]
-	path = ChinaOpenDataPortal-Metadata
+	path = codp-metadata
 	url = ../ChinaOpenDataPortal-Metadata.git
 [submodule "ChinaOpenDataPortal-IndexBuilder"]
-	path = ChinaOpenDataPortal-IndexBuilder
+	path = codp-index-builder
 	url = ../ChinaOpenDataPortal-IndexBuilder.git
 [submodule "ChinaOpenDataPortal-Frontend-Vue"]
-	path = ChinaOpenDataPortal-Frontend-Vue
+	path = codp-frontend-vue
 	url = ../ChinaOpenDataPortal-Frontend-Vue.git
+[submodule "codp-backend-flask"]
+	path = codp-backend-flask
+	url = ../ChinaOpenDataPortal-Backend-Flask.git
