@@ -38,8 +38,8 @@ PRD_TABLE_NAME="****"
 # Options
 CRAWL_WORKERS=60
 CRAWL_FILES="" # OR "--download-files"
-FLASK_PORT="5007"
-PYTHON_RETRY_TIMES="1"
+FLASK_PORT=5007
+PYTHON_RETRY_TIMES=1
 
 echo "[LOG] Environment loaded."
 
