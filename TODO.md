@@ -7,6 +7,11 @@
     - [ ] 接入数据文件读取功能
 
 - Metadata
-    - [ ] 写入数据库适配更新后的 Metadata Table Template
+    - [ ] 数据库部分适配更新后的 Metadata Table Template:
+        - 按照 Update Time 决定是否更新已存在的 Metadata
+        - 写入原始 Metadata 用于描述增强以及数据集成等步骤
 
 - Index-Builder
+
+- Others
+    - [ ] 保存后台服务的 PID 以实现更方便的重启方式
