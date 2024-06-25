@@ -3,9 +3,9 @@
 SCRIPT_DIR=$(dirname $(readlink -f $0))
 THIS_REPO_PATH="${SCRIPT_DIR}/.."
 
-SERVER_REPO_PATH="${THIS_REPO_PATH}/ChinaOpenDataPortal-Backend"
-METADATA_REPO_PATH="${THIS_REPO_PATH}/ChinaOpenDataPortal-Metadata"
-INDEXBUILDER_REPO_PATH="${THIS_REPO_PATH}/ChinaOpenDataPortal-IndexBuilder"
+SERVER_REPO_PATH="${THIS_REPO_PATH}/codp-backend-java"
+METADATA_REPO_PATH="${THIS_REPO_PATH}/codp-metadata"
+INDEXBUILDER_REPO_PATH="${THIS_REPO_PATH}/codp-index-builder"
 
 METADATA_PATH="${THIS_REPO_PATH}/metadata"
 DATAFILE_PATH="${THIS_REPO_PATH}/datafile"
