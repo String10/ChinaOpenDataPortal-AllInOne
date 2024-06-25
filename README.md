@@ -166,6 +166,28 @@ Environmet variables you may want to specify in `env.custom.sh`:
 +-------------------+--------------+------+-----+---------+----------------+
 ```
 
+### Enhanced Descripion Table Template
+
+```
++----------------------+------+------+-----+---------+-------+
+| Field                | Type | Null | Key | Default | Extra |
++----------------------+------+------+-----+---------+-------+
+| dataset_id           | int  | YES  |     | NULL    |       |
+| description_enhanced | text | YES  |     | NULL    |       |
++----------------------+------+------+-----+---------+-------+
+```
+
+### Data File Path Table Template
+
+```
++------------+------+------+-----+---------+-------+
+| Field      | Type | Null | Key | Default | Extra |
++------------+------+------+-----+---------+-------+
+| dataset_id | int  | NO   |     | NULL    |       |
+| path       | text | YES  |     | NULL    |       |
++------------+------+------+-----+---------+-------+
+```
+
 ### Docker Compose YAML
 
 ``` YAML
