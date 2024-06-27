@@ -3,7 +3,8 @@
 SCRIPT_DIR=$(dirname $(readlink -f $0))
 THIS_REPO_PATH="${SCRIPT_DIR}/.."
 
-SERVER_REPO_PATH="${THIS_REPO_PATH}/codp-backend-java"
+SERVER_JAVA_REPO_PATH="${THIS_REPO_PATH}/codp-backend-java"
+SERVER_PY_REPO_PATH="${THIS_REPO_PATH}/codp-backend-flask"
 METADATA_REPO_PATH="${THIS_REPO_PATH}/codp-metadata"
 INDEXBUILDER_REPO_PATH="${THIS_REPO_PATH}/codp-index-builder"
 
@@ -21,7 +22,7 @@ FLASK_PATH="flask"
 
 # Common
 LUCENE_CURRENT_INDEX_PATH="${LUCENE_INDICES_PATH}/current"
-STOPWORDS_PATH="${SERVER_REPO_PATH}/src/main/resources/data/nltk-chinese-stopwords.txt"
+STOPWORDS_PATH="${SERVER_JAVA_REPO_PATH}/src/main/resources/data/nltk-chinese-stopwords.txt"
 # Security
 ADMIN_USER="****"
 ADMIN_PSWD="****"
